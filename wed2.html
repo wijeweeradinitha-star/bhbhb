@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dinitha Devnith Wijeweera | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#050505;
+  --p:#A020F0;
+  --v:#7928CA;
+  --l:#C58AFF;
+  --tx:#ece6f5;
+  --mut:#a79bb8;
+  --bd:rgba(197,138,255,.22);
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:100px}
+body {
+  margin:0;background:var(--bg);color:var(--tx);
+  font:16px/1.65 Sora,Arial,sans-serif;overflow-x:hidden
+}
+a {color:inherit;text-decoration:none}
+.glass {
+  background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(160,32,240,.07));
+  backdrop-filter:blur(15px);
+  border:1px solid var(--bd);border-radius:20px;
+  box-shadow:0 10px 35px rgba(0,0,0,.4)
+}
+#fx {position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob {position:absolute;border-radius:50%;filter:blur(100px);opacity:.35;animation:drift 18s infinite alternate}
+.b1 {width:45vw;height:45vw;background:var(--v);left:-10vw;top:-10vw}
+.b2 {width:40vw;height:40vw;background:var(--p);right:-10vw;top:40vh}
+.b3 {width:30vw;height:30vw;background:#4b1a8f;left:30vw;bottom:-15vw}
+@keyframes drift {to{transform:translate(6vw,5vw) scale(1.15)}}
+
+nav {
+ position:fixed;top:12px;left:50%;transform:translateX(-50%);
+ z-index:50;display:flex;align-items:center;gap:4px;padding:8px;
+ max-width:95%;overflow-x:auto;white-space:nowrap
+}
+nav a {padding:8px 12px;color:var(--mut);font-size:13px;border-radius:20px}
+nav a:hover {background:rgba(160,32,240,.3);color:white}
+
+.logo {font-weight:800;color:var(--l);font-size:20px;padding:5px 12px}
+.btn {
+ display:inline-block;padding:11px 22px;border:1px solid var(--bd);
+ border-radius:30px;background:rgba(160,32,240,.12);
+ color:white;cursor:pointer;font:inherit;font-size:13px
+}
+.btn:hover {background:var(--p);box-shadow:0 0 20px var(--p)}
+.pri {background:linear-gradient(120deg,var(--v),var(--p))}
+.sm {padding:6px 12px;font-size:12px}
+section {max-width:1200px;margin:auto;padding:110px 5% 35px}
+h1 {font-size:clamp(42px,8vw,90px);line-height:1.05;margin:15px 0;background:linear-gradient(120deg,#fff,var(--l),var(--p));background-clip:text;color:transparent}
+h2 {font-size:clamp(30px,5vw,48px);margin:0}
+h3 {margin:8px 0}
+.sub {color:var(--mut);margin-bottom:30px}
+#home {min-height:100vh;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:25px;padding-top:130px}
+.tag {color:var(--l);font-size:20px}
+.stage {height:350px;display:grid;place-items:center;perspective:900px}
+.cube {width:130px;height:130px;position:relative;transform-style:preserve-3d;animation:spin 20s linear infinite}
+.cube i {position:absolute;inset:0;border:1px solid var(--l);background:rgba(160,32,240,.12);box-shadow:inset 0 0 30px var(--p)}
+.cube i:nth-child(1){transform:translateZ(65px)}
+.cube i:nth-child(2){transform:rotateY(90deg) translateZ(65px)}
+.cube i:nth-child(3){transform:rotateY(180deg) translateZ(65px)}
+.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(65px)}
+.cube i:nth-child(5){transform:rotateX(90deg) translateZ(65px)}
+.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(65px)}
+@keyframes spin {to{transform:rotateX(360deg) rotateY(360deg)}}
+.ring {position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid var(--bd);transform:rotateX(70deg)}
+.btns {display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+
+.about {display:grid;grid-template-columns:.8fr 1.3fr;gap:22px}
+.photo {min-height:300px;overflow:hidden;display:grid;place-items:center}
+.photo img {width:100%;height:100%;object-fit:cover}
+.bio,.info>div {padding:20px}
+.info {display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}
+.info h3,.bio h3 {color:var(--l)}
+.info p,.bio p {color:var(--mut);font-size:14px;margin:0}
+
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card {overflow:hidden;position:relative}
+.card img {width:100%;height:190px;object-fit:cover;display:block}
+.cb {padding:18px}
+.cb small {color:var(--l)}
+.cb p {color:var(--mut);font-size:13px}
+.ph {height:190px;display:grid;place-items:center;background:linear-gradient(145deg,#12041f,#32105a);color:var(--l);text-align:center}
+.fl {position:absolute;top:10px;right:10px;z-index:3;display:none;gap:5px}
+body.edit .fl {display:flex}
+
+.logo-history-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.logo-version {padding:20px;text-align:center;position:relative;overflow:hidden;transition:.3s}
+.logo-version:hover {transform:translateY(-6px);border-color:var(--l);box-shadow:0 0 30px rgba(160,32,240,.3)}
+.logo-version img {width:100%;height:180px;object-fit:contain;background:#08050c;border-radius:14px;margin-bottom:12px}
+.logo-version h3 {color:var(--l)}
+.logo-version p {color:var(--mut);font-size:13px}
+.year {font-size:12px;color:white;opacity:.7}
+.logo-version img[data-logo-img] {cursor:pointer}
+
+.edu {display:grid;gap:14px}
+.edu .it {padding:20px;display:grid;grid-template-columns:130px 1fr;gap:15px;position:relative}
+.edu b {color:var(--l)}
+.edu p {color:var(--mut);margin:5px 0}
+.skills {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.sk {padding:20px}
+.sk h3 {font-size:15px}
+.bar {height:4px;background:#25202c;border-radius:5px;margin-top:12px}
+.bar i {display:block;height:100%;background:linear-gradient(90deg,var(--v),var(--l))}
+.contact {display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.contact a {padding:20px;text-align:center}
+footer {text-align:center;color:var(--mut);padding:60px 15px}
+
+.only {display:none}
+body.edit .only {display:inline-block}
+body.edit [contenteditable] {cursor:text;outline:none}
+body.edit [contenteditable]:focus {text-shadow:0 0 10px var(--l)}
+.eb {position:fixed;bottom:15px;left:50%;transform:translateX(-50%);z-index:60;padding:12px;display:none;gap:10px;align-items:center;max-width:95%;flex-wrap:wrap;justify-content:center}
+body.edit .eb {display:flex}
+dialog {border:0;background:transparent;color:var(--tx);width:min(850px,95%);padding:0}
+dialog::backdrop {background:rgba(0,0,0,.85);backdrop-filter:blur(8px)}
+.dg {padding:25px;background:#10091a;border:1px solid var(--bd);border-radius:20px}
+.dg label {display:block;color:var(--l);font-size:13px;margin:12px 0}
+input,textarea {width:100%;padding:10px;margin-top:5px;background:#08050c;color:white;border:1px solid var(--bd);border-radius:8px;font:inherit}
+.dg img {max-width:100%;max-height:200px;object-fit:contain}
+#toast {position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:99;display:none;padding:12px 20px}
+@media(max-width:800px) {
+ #home,.about {grid-template-columns:1fr}
+ .stage {height:230px;order:-1}
+ .info {grid-template-columns:1fr}
+ .edu .it {grid-template-columns:1fr;gap:5px}
+ nav a {padding:7px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce) {
+ *,*::before,*::after {animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+<div id="fx">
+ <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+
+<nav class="glass">
+ <a href="#home" class="logo">DW</a>
+ <a href="#home">Home</a>
+ <a href="#about">About</a>
+ <a href="#projects">Projects</a>
+ <a href="#achievements">Achievements</a>
+ <a href="#logo-history">Logo History</a>
+ <a href="#education">Education</a>
+ <a href="#skills">Skills</a>
+ <a href="#contact">Contact</a>
+<button class="btn sm" id="tog">Edit site</button>
+</nav>
+
+<main>
+<section id="home">
+ <div>
+  <p class="tag">Hello, I'm</p>
+  <h1 data-t="name">Dinitha Devnith Wijeweera</h1>
+  <p class="tag" data-t="tag">Creative Designer | Upcoming Entrepreneur</p>
+  <p class="sub" data-t="intro">Welcome to my digital world. I explore creativity, design, technology and entrepreneurship.</p>
+  <div class="btns">
+   <a class="btn pri" href="#projects">Explore My Work</a>
+   <a class="btn" href="#contact">Contact Me</a>
+  </div>
+ </div>
+ <div class="stage">
+  <div class="ring"></div>
+  <div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+ </div>
+</section>
+
+<section id="about">
+ <h2>About Me</h2>
+ <p class="sub">The person behind the work.</p>
+ <div class="about">
+  <div class="photo glass" id="photo">Upload your photo in Edit mode</div>
+  <div>
+   <div class="bio glass">
+    <h3>Biography</h3>
+    <p data-t="bio">I am a student of Ananda College with a strong interest in creative design, business, technology and event management. I enjoy exploring new ideas and developing my skills as an upcoming entrepreneur.</p>
+   </div>
+   <div class="info">
+    <div class="glass"><h3>Education</h3><p>Ananda College, Colombo</p></div>
+    <div class="glass"><h3>Interests</h3><p>Design, business, technology, history and event management.</p></div>
+    <div class="glass"><h3>Skills</h3><p>Graphic design, web design, creativity and communication.</p></div>
+    <div class="glass"><h3>Goals</h3><p>Build my own business and develop creative projects.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="projects">
+ <h2>Projects</h2>
+ <p class="sub">Some of my creative work.</p>
+ <div class="grid" id="pg"></div>
+ <button class="btn only" data-add="p">Add Project</button>
+</section>
+
+<section id="achievements">
+ <h2>Achievements</h2>
+ <p class="sub">Certificates, awards and recognitions.</p>
+ <div class="grid" id="ag"></div>
+ <button class="btn only" data-add="a">Add Achievement</button>
+</section>
+
+<section id="logo-history">
+ <h2>Logo History</h2>
+ <p class="sub">The evolution of my visual identity — every version represents a step in my creative journey.</p>
+ <div class="logo-history-grid" id="lh"></div>
+ <button class="btn only" data-add="l">Add Logo Version</button>
+</section>
+
+<section id="education">
+ <h2>Education</h2>
+ <p class="sub">My educational journey.</p>
+ <div class="edu" id="edu"></div>
+ <button class="btn only" data-add="e">Add Entry</button>
+</section>
+
+<section id="skills">
+ <h2>Skills</h2>
+ <p class="sub">My creative and professional skills.</p>
+ <div class="skills" id="sk"></div>
+ <button class="btn only" data-add="s">Add Skill</button>
+</section>
+
+<section id="contact">
+ <h2>Contact</h2>
+ <p class="sub">Let's make something together.</p>
+ <div class="contact" id="ct"></div>
+</section>
+</main>
+
+<footer>© <span data-t="foot">Dinitha Devnith Wijeweera</span>. All rights reserved.</footer>
+
+<div class="eb glass">
+ <span>Edit mode active</span>
+ <button class="btn sm" id="rst">Reset</button>
+ <button class="btn sm pri" id="done">Done</button>
+</div>
+
+<div id="toast" class="glass"></div>
+<dialog id="ed"></dialog>
+<input type="file" id="fi" accept="image/*" hidden>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const K='DW-PORTFOLIO-LOGO-HISTORY';
+
+const uid=()=>Math.random().toString(36).slice(2,9);
+
+const defaults=()=>({
+ t:{},
+ photo:'',
+ p:[],
+ a:[],
+ l:[
+  {id:uid(),title:'Original Logo',year:'2024',desc:'The beginning of my visual identity.',img:''},
+  {id:uid(),title:'Creative Evolution',year:'2025',desc:'Exploring new styles and creative concepts.',img:''},
+  {id:uid(),title:'DW Identity',year:'2026',desc:'My current identity, representing creativity and ambition.',img:''}
+ ],
+ e:[{y:'2022 – 2026',t:'School Education',d:'Ananda College, Colombo.'}],
+ s:['Graphic Design','Web Design','Creative Thinking','Entrepreneurship','Event Management','Digital Creativity'].map(n=>({n,l:80})),
+ c:[
+  {n:'Email',u:'dinitha,wijeweera@outlook.com'},
+  {n:'Instagram',u:'https://instagram.com/'},
+  {n:'LinkedIn',u:'https://linkedin.com/'},
+  {n:'WhatsApp',u:'https://wa.me/'},
+  {n:'GitHub',u:'https://github.com/wijeweeradinitha-star'}
+ ]
+});
+
+let S;
+try {S=JSON.parse(localStorage.getItem(K))} catch(e) {}
+S=S||defaults();
+S.l ||= [];
+
+let E=false;
+const save=()=>{
+ try {localStorage.setItem(K,JSON.stringify(S))}
+ catch(e){toast('Storage full. Try smaller images.')}
+};
+function toast(m){
+ const t=$('#toast');
+ t.textContent=m;t.style.display='block';
+ setTimeout(()=>t.style.display='none',2500);
+}
+
+function render(){
+ $$('[data-t]').forEach(n=>{
+  if(S.t[n.dataset.t]!=null)n.textContent=S.t[n.dataset.t];
+  n.contentEditable=E;
+ });
+
+ $('#photo').innerHTML=S.photo?`<img src="${S.photo}" alt="My portrait">`:'Upload your photo in Edit mode';
+
+ const card=(k,o)=>`
+ <article class="card glass">
+  ${E?`<div class="fl"><button class="btn sm" data-edit="${k}:${o.id}">Edit</button></div>`:''}
+  ${o.imgs?.[0]?`<img src="${o.imgs[0]}" alt="${esc(o.title)}">`:'<div class="ph">Upload an image</div>'}
+  <div class="cb">
+   <small>${esc(k==='p'?o.cat:o.org)} · ${esc(o.date)}</small>
+   <h3>${esc(o.title)}</h3>
+   <p>${esc(o.desc)}</p>
+  </div>
+ </article>`;
+
+ $('#pg').innerHTML=S.p.map(o=>card('p',o)).join('');
+ $('#ag').innerHTML=S.a.map(o=>card('a',o)).join('');
+
+ $('#lh').innerHTML=S.l.map((o,i)=>`
+ <div class="logo-version glass">
+  ${E?`<div class="fl"><button class="btn sm" data-del="l:${i}">Remove</button></div>`:''}
+  ${o.img
+   ?`<img data-logo-img="${i}" src="${o.img}" alt="${esc(o.title)}">`
+   :`<div class="ph" style="height:180px" data-logo-img="${i}">Upload logo in Edit mode</div>`}
+  <h3 ${E?'contenteditable="true"':''} data-f="l:${i}:title">${esc(o.title)}</h3>
+  <span class="year" ${E?'contenteditable="true"':''} data-f="l:${i}:year">${esc(o.year)}</span>
+  <p ${E?'contenteditable="true"':''} data-f="l:${i}:desc">${esc(o.desc)}</p>
+ </div>
+ `).join('');
+
+ $('#edu').innerHTML=S.e.map((o,i)=>`
+ <div class="it glass">
+  <b ${E?'contenteditable="true"':''} data-f="e:${i}:y">${esc(o.y)}</b>
+  <div>
+   <h3 ${E?'contenteditable="true"':''} data-f="e:${i}:t">${esc(o.t)}</h3>
+   <p ${E?'contenteditable="true"':''} data-f="e:${i}:d">${esc(o.d)}</p>
+  </div>
+  ${E?`<button class="btn sm" data-del="e:${i}">Remove</button>`:''}
+ </div>
+ `).join('');
+
+ $('#sk').innerHTML=S.s.map((o,i)=>`
+ <div class="sk glass">
+  ${E?`<button class="btn sm" data-del="s:${i}">Remove</button>`:''}
+  <h3 ${E?'contenteditable="true"':''} data-f="s:${i}:n">${esc(o.n)}</h3>
+  <div class="bar"><i style="width:${o.l}%"></i></div>
+  ${E?`<label>Level <input type="number" min="5" max="100" data-lv="${i}" value="${o.l}"></label>`:''}
+ </div>
+ `).join('');
+
+ $('#ct').innerHTML=S.c.map((o,i)=>`
+ <a class="glass btn" href="${esc(o.u)}" target="_blank" rel="noopener" data-ct="${i}">${esc(o.n)}</a>
+ `).join('');
+}
+
+function pick(cb,multi=false){
+ const fi=$('#fi');
+ fi.multiple=multi;fi.value='';
+ fi.onchange=()=>{
+  const files=[...fi.files];
+  if(!files.length)return;
+  let count=0,results=[];
+  files.forEach(f=>{
+   const reader=new FileReader();
+   reader.onload=()=>{
+    results.push(reader.result);
+    count++;
+    if(count===files.length)cb(results);
+   };
+   reader.readAsDataURL(f);
+  });
+ };
+ fi.click();
+}
+
+function openEditor(k,id){
+ const old=id?S[k].find(o=>o.id===id):null;
+ const o=old?JSON.parse(JSON.stringify(old)):
+  k==='l'?{id:uid(),title:'New Logo Version',year:'2026',desc:'Describe this logo.',img:''}:
+  {id:uid(),title:'New Item',cat:'Category',org:'Organization',date:'2026',desc:'Describe it.',imgs:[]};
+
+ const p=k==='p';
+ const a=k==='a';
+ $('#ed').innerHTML=`
+ <form class="dg" id="ef">
+  <h2>${old?'Edit':'Add'} ${k==='l'?'Logo Version':p?'Project':'Achievement'}</h2>
+  <label>Title<input name="title" value="${esc(o.title)}" required></label>
+  ${k==='l'?`
+   <label>Year<input name="year" value="${esc(o.year)}"></label>
+   <label>Description<textarea name="desc">${esc(o.desc)}</textarea></label>
+   <label>Logo image<input type="file" id="logoFile" accept="image/*"></label>
+   ${o.img?`<img src="${o.img}" alt="Logo preview">`:''}
+  `:`
+   <label>${p?'Category':'Organization'}<input name="${p?'cat':'org'}" value="${esc(p?o.cat:o.org)}"></label>
+   <label>Date<input name="date" value="${esc(o.date)}"></label>
+   <label>Description<textarea name="desc">${esc(o.desc)}</textarea></label>
+   <label>Image<input type="file" id="itemFile" accept="image/*"></label>
+  `}
+  <div class="btns">
+   <button type="submit" class="btn pri">Save</button>
+   <button type="button" class="btn" id="cancel">Cancel</button>
+  </div>
+ </form>`;
+
+ $('#ed').showModal();
+
+ $('#cancel').onclick=()=>$('#ed').close();
+
+ $('#ef').onsubmit=e=>{
+  e.preventDefault();
+  const f=new FormData(e.target);
+  for(const[key,value] of f){
+   if(typeof value==='string')o[key]=value;
+  }
+  const file=$('#logoFile')?.files[0]||$('#itemFile')?.files[0];
+  const finish=()=>{
+   const list=S[k];
+   const i=list.findIndex(x=>x.id===o.id);
+   if(i<0)list.push(o);else list[i]=o;
+   save();render();$('#ed').close();
+  };
+  if(file){
+   const r=new FileReader();
+   r.onload=()=>{if(k==='l')o.img=r.result;else o.imgs=[r.result];finish()};
+   r.readAsDataURL(file);
+  }else finish();
+ };
+}
+
+document.addEventListener('click',e=>{
+ const t=e.target;
+ let n;
+
+ if(n=t.closest('[data-edit]')){
+  const[k,id]=n.dataset.edit.split(':');
+  return openEditor(k,id);
+ }
+
+ if(n=t.closest('[data-logo-img]')){
+  if(!E)return;
+  const i=+n.dataset.logoImg;
+  return pick(r=>{S.l[i].img=r[0];save();render()},false);
+ }
+
+ if(n=t.closest('[data-del]')){
+  const[k,i]=n.dataset.del.split(':');
+  if(confirm('Remove this item?')){
+   S[k].splice(+i,1);save();render();
+  }
+  return;
+ }
+
+ if(n=t.closest('[data-add]')){
+  const k=n.dataset.add;
+  if(k==='l'||k==='p'||k==='a')return openEditor(k);
+  if(k==='e')S.e.push({y:'Year',t:'New Education',d:'Details'});
+  if(k==='s')S.s.push({n:'New Skill',l:70});
+  save();render();return;
+ }
+
+ if(t.closest('#photo')&&E){
+  return pick(r=>{S.photo=r[0];save();render()},false);
+ }
+
+ if(t.closest('#tog')){
+  E=!E;document.body.classList.toggle('edit',E);
+  render();toast(E?'Edit mode enabled':'Edit mode disabled');
+ }
+
+ if(t.closest('#done')){
+  E=false;document.body.classList.remove('edit');render();
+ }
+
+ if(t.closest('#rst')&&confirm('Reset all portfolio changes?')){
+  S=defaults();save();render();
+ }
+});
+
+document.addEventListener('focusout',e=>{
+ const n=e.target;
+ if(!E)return;
+ if(n.dataset.t){
+  S.t[n.dataset.t]=n.textContent;save();
+ }
+ if(n.dataset.f){
+  const[k,i,f]=n.dataset.f.split(':');
+  S[k][i][f]=n.textContent;save();
+ }
+ if(n.dataset.lv){
+  S.s[n.dataset.lv].l=Math.max(5,Math.min(100,+n.value||70));
+  save();render();
+ }
+});
+
+const $$=s=>[...document.querySelectorAll(s)];
+render();
+</script>
+</body>
+</html>
